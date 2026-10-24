@@ -40,6 +40,8 @@ python average_checkpoints.py \
 1. Скачать [готовые веса](https://github.com/Stefan2417/hse-nlp/releases/download/hw2-final/hw2_kaggle_average_60000_92394.zip)
    и загрузить ZIP в приватный Kaggle Dataset. Kaggle автоматически его распакует.
 2. Импортировать `kaggle_inference.ipynb` и подключить Dataset через **Add Input**.
+   Во второй ячейке сохранён путь к Dataset выполненного запуска. Для другого Dataset
+   закомментировать этот `root = Path(...)` и раскомментировать строку автоматического поиска `root` над ним.
 3. Выбрать **GPU T4 ×2**. Код использует одну карту — `cuda:0`.
 4. Оставить `mode = "beam4"` или поменять на `mode = "greedy"`.
 5. Запустить **Run All** и скачать из Output `submission_beam4.jsonl`

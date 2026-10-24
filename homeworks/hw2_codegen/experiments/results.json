@@ -87,7 +87,22 @@
     "public_pass_at_1": 0.6927083333333334,
     "model_sha256": "4938e372ef21fcf835cabd15001591d60758f4035399eb7152ab58637962aa33",
     "local_validation_completed": false,
-    "attribution": "The public change from 656 to 665 correct includes additional training and averaging; the separate averaging effect was not measured."
+    "attribution": "The public change from 656 to 665 correct includes additional training and averaging; the separate averaging effect was not measured.",
+    "observed_kaggle_run": {
+      "device": "Tesla T4",
+      "cuda_device": "cuda:0",
+      "mode": "beam4",
+      "examples": 1919,
+      "generation_seconds": 101.223983,
+      "inference_seconds": 101.234162,
+      "including_setup_seconds": 130.229373,
+      "hit_length_limit": 1,
+      "max_new_tokens": 256,
+      "hypothesis_batch_size": 256,
+      "source": "User-provided executed Kaggle Notebook (5).ipynb",
+      "notebook_sha256": "ce45f20e616ee940ccfb3d36ff89f53ace49616e4c278ae7dc949fe9004b523c",
+      "numbers_precision": "as displayed in saved cell output"
+    }
   },
   "other_experiments": {
     "padding": {
