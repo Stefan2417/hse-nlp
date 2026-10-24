@@ -1,0 +1,11 @@
+.venv/
+.wandb-sync-venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+generated_images/
+wandb/
+local_archive/
+submissions/
+homeworks/emails.csv

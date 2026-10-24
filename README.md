@@ -1,5 +1,7 @@
 # Natural Language Processing (NLP), ФКН ВШЭ
 
+Решение ДЗ2: [код и запуск](homeworks/hw2_codegen/README.md), [Kaggle-ноутбук](homeworks/hw2_codegen/kaggle_inference.ipynb).
+
 Этот репозиторий содержит материалы лекций, семинаров и домашние задания.
 
 # Темы курса

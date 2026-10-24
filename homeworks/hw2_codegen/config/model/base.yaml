@@ -1,0 +1,9 @@
+d_model: 768
+d_kv: 64
+d_ff: 3072
+num_layers: 8
+num_decoder_layers: 4
+num_heads: 12
+dropout_rate: 0.1
+feed_forward_proj: gelu
+tie_word_embeddings: true

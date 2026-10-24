@@ -1,0 +1,10 @@
+.venv/
+.wandb-sync-venv/
+__pycache__/
+*.pyc
+data/
+outputs/
+artifacts/
+wandb/
+.DS_Store
+*.zip

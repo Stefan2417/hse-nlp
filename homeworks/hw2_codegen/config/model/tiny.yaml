@@ -1,0 +1,10 @@
+# Only for checking the pipeline, not for the competition.
+d_model: 32
+d_kv: 16
+d_ff: 64
+num_layers: 1
+num_decoder_layers: 1
+num_heads: 2
+dropout_rate: 0.0
+feed_forward_proj: gelu
+tie_word_embeddings: true

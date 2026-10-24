@@ -1,0 +1,93 @@
+# @package _global_
+seed: 42
+data_dir: data/prepared
+run_dir: outputs/baseline
+resume: null
+init_checkpoint: null
+data:
+  name: SlavaYus/tinysms_qa_12m
+  revision: b2724689ff079e9c22efd548fe134bfb29036dbb
+  train_file: null
+  test_file: null
+  max_train_samples: null
+  validation_fraction: 0.001
+  max_source_length: 256
+  max_target_length: 512
+  eval_samples: 1024
+  num_proc: 4
+tokenizer:
+  vocab_size: 16384
+  train_samples: 200000
+  min_frequency: 2
+training:
+  output_dir: ${run_dir}/checkpoints
+  num_train_epochs: 1
+  max_steps: -1
+  per_device_train_batch_size: 32
+  per_device_eval_batch_size: 32
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0005
+  adam_beta1: 0.9
+  adam_beta2: 0.98
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  warmup_ratio: 0.02
+  lr_scheduler_type: cosine
+  optim: adamw_torch
+  bf16: true
+  fp16: false
+  use_cpu: false
+  group_by_length: true
+  length_column_name: length
+  dataloader_num_workers: 4
+  eval_strategy: steps
+  eval_steps: 1000
+  save_strategy: steps
+  save_steps: 1000
+  save_total_limit: 2
+  logging_steps: 50
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  greater_is_better: false
+  prediction_loss_only: true
+  predict_with_generate: false
+  report_to: wandb
+  seed: ${seed}
+  data_seed: ${seed}
+  logging_first_step: true
+  skip_memory_metrics: false
+generation:
+  model_dir: ${run_dir}/model
+  split: validation
+  output: ${run_dir}/${generation.split}.jsonl
+  batch_size: 32
+  max_new_tokens: 512
+  max_samples: null
+  num_beams: 1
+  device: auto
+  dtype: auto
+evaluation:
+  predictions: ${generation.output}
+  execute: false
+  docker_image: python:3.11-slim
+  timeout: 2
+  rtol: 0.0001
+  atol: 1.0e-06
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: ${run_dir}/hydra/${hydra.job.name}/${now:%Y-%m-%d_%H-%M-%S}
+model:
+  d_model: 768
+  d_kv: 64
+  d_ff: 3072
+  num_layers: 8
+  num_decoder_layers: 4
+  num_heads: 12
+  dropout_rate: 0.1
+  feed_forward_proj: gelu
+  tie_word_embeddings: true
+init_optimizer: false
+execution_validation:
+  enabled: false
