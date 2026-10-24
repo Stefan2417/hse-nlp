@@ -1,3 +1,4 @@
+import hydra
 import train
 from transformers import Seq2SeqTrainer, TrainerCallback
 
@@ -16,6 +17,11 @@ class InitialTrainer(Seq2SeqTrainer):
         self.add_callback(StopAtCheckpoint())
 
 
-if __name__ == "__main__":
+@hydra.main(version_base=None, config_path="../config", config_name="config")
+def main(cfg):
     train.LengthAwareTrainer = InitialTrainer
-    train.main()
+    train.main.__wrapped__(cfg)
+
+
+if __name__ == "__main__":
+    main()
