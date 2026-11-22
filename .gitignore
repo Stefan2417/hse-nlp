@@ -9,3 +9,5 @@ wandb/
 local_archive/
 submissions/
 homeworks/emails.csv
+homeworks/hw2_codegen/report
+exam_notes
